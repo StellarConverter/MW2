@@ -16,7 +16,7 @@ export class Merchant extends CitizenBase
         this.Name = 'Merchant';
     }
 
-    Heartbeat(z:StuffRoot)
+    public Heartbeat(z:StuffRoot)
     {
         z.Gold += z.Market.Level;
     }
@@ -76,4 +76,9 @@ export class Builder extends CitizenBase
     {
         return "Recovery Time Left: "+ this.RecoveryTime;
     }
+
+    public get IsReady():boolean
+    {
+         return this.RecoveryTime == 0;
+     }
 }

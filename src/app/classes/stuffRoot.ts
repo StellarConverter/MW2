@@ -40,7 +40,7 @@ export class StuffRoot
 
     public CanUpgradeMarket() : boolean
     {
-        return this.Gold >= this.Market.GetUpgradePrice();
+        return  this.Builder.IsReady &&this.Gold >= this.Market.GetUpgradePrice();
     }
 
     public UpgradeMarket()
@@ -50,6 +50,24 @@ export class StuffRoot
         {
             this.Gold -= price;
             this.Market.Level++;
+            this.Builder.RecoveryTime+= this.Market.Level;
         }
     }
+
+
+    public CanUpgradeCamp() : boolean
+    {
+        return this.Builder.IsReady && this.Gold >= this.Camp.GetUpgradePrice();
+    }
+
+    public UpgradeCamp()
+    {
+        let price =this.Camp.GetUpgradePrice(); 
+        if (this.Gold >= price)
+        {
+            this.Gold -= price;
+            this.Camp.Level++;
+            this.Builder.RecoveryTime+= this.Camp.Level;
+        }
+    }    
 }

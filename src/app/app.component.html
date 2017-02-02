@@ -12,9 +12,13 @@ Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name()}})
 <router-outlet></router-outlet>
  </div>
  <HR>
+ Check out my mad routing skills...
  <a routerLink = "title">title</a> |<a routerLink = "dash">Dash</a> | <a routerLink = "rep">Report</a> 
  <HR>
  <button (click)='nextClick()'>NEXT</button>
  <BR>
  <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='zzz.UpgradeMarket()'>Upgrade Market</button> </div>
  <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
+
+ <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='zzz.UpgradeCamp()'>Upgrade Camp</button> </div>
+ <div *ngIf="!zzz.CanUpgradeCamp()"> Gold needed to upgrade Camp: {{zzz.Camp.GetUpgradePrice()}} </div>

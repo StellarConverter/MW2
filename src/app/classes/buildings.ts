@@ -1,77 +1,67 @@
-export class Marketplace
+export abstract class BuildingBase
 {
-    private _level:number;
-    public get Level():number
-    {
-        return this._level;
-    }
-    public set Level(value:number)
-    {
-        if (value > 0)
-        {
-            this._level = value;
-        }
-    }   
-
     constructor()
     {
         this.Level = 1;
     }
 
-    private _levelNames:string[]=['Stall', 'Tent', 'Shoppe', 'Alley', 'Marketplace', 'Plaza' ];
+    protected levelNames:string[];
+
+    protected buildingLevel:number;
+    public get Level():number
+    {
+        return this.buildingLevel;
+    }
+    public set Level(value:number)
+    {
+        if (value > 0)
+        {
+            this.buildingLevel = value;
+        }
+    }       
 
     public Name():string
     {
-        if (this.Level < 7 )
+        if (this.Level < this.levelNames.length )
         {
-            return this._levelNames[this._level - 1];
+            return this.levelNames[this.Level - 1];
         }
         else
         {
-            let bazLevel = this._level - 6;
-            return 'Bazaar Level ' + bazLevel;
+            let sublevel = this.Level - (this.levelNames.length - 1);
+            return this.levelNames[this.levelNames.length - 1] + ' Level ' + sublevel;
         }
+    }
+
+    public abstract GetUpgradePrice() : number;       
+}
+
+
+export class Marketplace extends BuildingBase
+{
+    constructor()
+    {
+        super();
+        this.levelNames=['Stall', 'Tent', 'Shoppe', 'Alley', 'Marketplace', 'Bazaar', 'Plaza' ];
     }
 
     public GetUpgradePrice() : number
     {
-        //return Math.pow(3, this._level);
-        return Math.pow(2, this._level);
+        return Math.pow(2, this.Level);
     }
 }
 
 
-export class ArmyCamp
+export class ArmyCamp extends BuildingBase
 {
-    private _level:number;
-    public get Level():number
-    {
-        return this._level;
-    }
-    public set Level(value:number)
-    {
-        if (value > 0)
-        {
-            this._level = value;
-        }
-    }   
-
     constructor()
     {
-        this.Level = 1;
+        super();
+        this.levelNames=['Gravel Pit', 'Tennis Court', 'Gym', 'Arena', 'Stadium'];
     }
 
-    private _levelNames:string[]=['Basement', 'Gravel Pit', 'Tennis Court', 'Weight Room', 'Gym', 'Arena' ];
-
-    public Name():string
+    public GetUpgradePrice() : number
     {
-        if (this.Level < 5 )
-        {
-            return this._levelNames[this._level - 1];
-        }
-        else
-        {
-            return 'Stadium Level ';// + this._level - 5;   LOLCAT
-        }
+        return Math.pow(3, this.Level);
     }
 }
