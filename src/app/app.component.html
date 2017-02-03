@@ -22,3 +22,6 @@ Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name()}})
 
  <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='zzz.UpgradeCamp()'>Upgrade Camp</button> </div>
  <div *ngIf="!zzz.CanUpgradeCamp()"> Gold needed to upgrade Camp: {{zzz.Camp.GetUpgradePrice()}} </div>
+
+<button (click)='zzz.AttemptDeed()'>Attempt Deed</button>
+ {{zzz.Warrior.GetChanceString()}}

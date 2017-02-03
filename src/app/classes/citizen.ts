@@ -30,26 +30,85 @@ export class Merchant extends CitizenBase
 
 export class Warrior extends CitizenBase
 {
-    XP: number;
-    XPRate:number;
+    public XP: number;
+    public PersonalName:string;
+    public Level:number;
+
+    
 
     constructor()
     {
         super();
-        this.Name = 'Warrior';
-        this.XPRate = 1;
+        this.PersonalName = "Konan";
         this.XP = 1;
+        this.Level = 1;
+        this.UpdateName();
     }
 
     Heartbeat(z:StuffRoot)
     {
-        this.XP += this.XPRate;
+        this.XP += z.Camp.Level;
+        let maxXPForTHisLevel = this.MaxXPForLevel(this.Level);
+        if (this.XP > maxXPForTHisLevel)
+        {
+            this.XP = maxXPForTHisLevel;
+        }
     }
 
     public GetSummary() : string
     {
-        return "XP: "+ this.XP + " XP Rate: " + this.XPRate;
+        return "Level:" + this.Level + " XP: "+ this.XP;
     }
+
+    private UpdateName()
+    {
+        this.Name = "Warrior: " + this.PersonalName;//LOLCAT --- this should build a name based on title, such as {0} the Mighty, etc.
+    }
+
+    public MaxXPForLevel(targetLevel:number) : number
+    {
+        return targetLevel * 10;
+    }
+
+    public GetChanceString(): string
+    {
+        let maxXPForTHisLevel = this.MaxXPForLevel(this.Level);
+        if (this.XP == maxXPForTHisLevel)
+        {
+            return "Victory is certain - do it noooowwwwww!!";
+        }
+        else
+        {
+            let chanceToGetNextLevel = this.GetChanceToGetNextLevel();
+            return "Chance of success: " + chanceToGetNextLevel + "%";  
+        }
+    }
+
+    public GetChanceToGetNextLevel(): number
+    {
+        let xpNextLevel = this.MaxXPForLevel(this.Level);
+        return ( this.XP / xpNextLevel) * 100; 
+    }
+    
+    public AttemptDeed()
+    {
+        let chanceGap = 100 - this.GetChanceToGetNextLevel();
+        let randomNumber = 50;
+        if (randomNumber >= chanceGap)
+        {
+            //success!
+            this.Level++;
+            this.XP = 1;
+            alert("winner");
+        } 
+        else
+        {
+            //failure....
+            this.XP = 1;
+            alert("loser");
+        }
+    }
+    
 }
 
 export class Builder extends CitizenBase

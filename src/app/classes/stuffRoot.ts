@@ -69,5 +69,10 @@ export class StuffRoot
             this.Camp.Level++;
             this.Builder.RecoveryTime+= this.Camp.Level;
         }
-    }    
+    }
+
+    public AttemptDeed()
+    {
+        this.Warrior.AttemptDeed();
+    }
 }
