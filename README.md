@@ -1,7 +1,13 @@
-Testing uno dos tres....
+A very simple proof-of-concept game in Angular 2.
 
-To run the app try this link, it is entirely possible that this link will work.  But let's not get carried away.
+Link to run the app: 
 https://stellarconverter.github.io/MW2
+
+So far I’m liking Angular - more specifically I’m liking Typescript over Javascript.  My plan is to finish out the game logic by the end of February (2017).  Then it will be on to a 5NAF clone most likely.
+
+
+
+
 
 
 Here is the stock jazz that was here orginally....
