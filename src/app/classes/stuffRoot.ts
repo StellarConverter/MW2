@@ -1,5 +1,6 @@
 import { CitizenBase , Merchant, Warrior, Builder} from './citizen';
 import {Marketplace, ArmyCamp} from './buildings';
+import {Deck, BaseCard } from './cards';
 
 export class StuffRoot
 {
@@ -15,6 +16,10 @@ export class StuffRoot
     Market:Marketplace;
     Camp:ArmyCamp;
 
+    cardRate:number;
+
+    deckOfCards:Deck;
+
     constructor()
     {
         this.Merch = new Merchant();
@@ -25,16 +30,26 @@ export class StuffRoot
 
         this.Gold = 0;
         this.CycleCount = 0;
+        this.cardRate = 15;
 
         this.Market = new Marketplace();
         this.Camp = new ArmyCamp();
+
+        this.deckOfCards = new Deck();
     }
 
     public ExecuteNext()
     {
+        this.CycleCount++;
         for (let citizen of this.Citizens)
         {
             citizen.Heartbeat(this);
+        }
+        if (this.CycleCount % this.cardRate == 0)
+        {
+            let card = this.deckOfCards.TakeCard();
+            card.ApplyCard(this);
+            //LOLCAT -- now do something... update UI, swap to report
         }
     }
 
