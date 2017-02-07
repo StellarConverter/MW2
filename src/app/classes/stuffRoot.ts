@@ -17,6 +17,8 @@ export class StuffRoot
     Camp:ArmyCamp;
 
     cardRate:number;
+    private currentcard: BaseCard;
+    public CurrentCard():BaseCard {return this.currentcard;}
 
     deckOfCards:Deck;
 
@@ -30,7 +32,9 @@ export class StuffRoot
 
         this.Gold = 0;
         this.CycleCount = 0;
-        this.cardRate = 15;
+
+        this.cardRate = 3;
+        this.currentcard = null;
 
         this.Market = new Marketplace();
         this.Camp = new ArmyCamp();
@@ -45,11 +49,16 @@ export class StuffRoot
         {
             citizen.Heartbeat(this);
         }
+
         if (this.CycleCount % this.cardRate == 0)
         {
             let card = this.deckOfCards.TakeCard();
             card.ApplyCard(this);
-            //LOLCAT -- now do something... update UI, swap to report
+            this.currentcard = card;
+        }
+        else
+        {
+            this.currentcard = null;
         }
     }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 import { TitlepageComponent} from './titlepage/titlepage.component';
 import { ReportpageComponent } from './reportpage/reportpage.component';
@@ -18,7 +19,7 @@ export class AppComponent
   title = 'app works!';
   zzz:StuffRoot;
 
-  constructor(private qq:BaxterService) { }
+  constructor(private qq:BaxterService, private router:Router) { }
 
   ngOnInit()
   {
@@ -28,5 +29,16 @@ export class AppComponent
   nextClick()
   {
     this.zzz.ExecuteNext();
+    let card = this.zzz.CurrentCard();
+    if (card == null)
+    {
+       let link = ['dash'];
+       this.router.navigate(link);
+    }
+    else
+    {
+       let link = ['rep'];
+       this.router.navigate(link);
+    }
   }
 }

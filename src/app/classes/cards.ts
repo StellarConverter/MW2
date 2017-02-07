@@ -13,13 +13,12 @@ export abstract class BaseCard
 
     public ApplyCard(zzz:StuffRoot)
     {
-
-alert(this.DisplayName());//LOLCAT this is just for now
-
         if (this.builderAdjust != null)
         {
             zzz.Builder.RecoveryTime += this.builderAdjust;
         }
+
+        //LOLCAT -- do other stuff
     }
 }
 
@@ -58,7 +57,7 @@ export class Flummoxed extends BaseCard
     {
         super();
         this.displayName="Flummoxed";
-        this.desc ="the descrption goes here";
+        this.desc ="The Builder has become flummoxed.  It will take some time for his mind to clear... being a Builder is a complicated thing.";
         this.builderAdjust = 3;
     }
 }
@@ -69,7 +68,7 @@ export class Leery extends BaseCard
     {
         super();
         this.displayName="Leery";
-        this.desc ="the descrption goes here";
+        this.desc ="The Builder has become leery of progressing further.  Perhaps he'll need to have a sit down and think things through before resuming his duties.";
         this.builderAdjust = 1;
     }
 }
@@ -80,7 +79,7 @@ export class Moribund extends BaseCard
     {
         super();
         this.displayName="Moribund";
-        this.desc ="the descrption goes here";
+        this.desc ="A dark mood settles over The Builder.  It is unlikely that he will be able to proceed until h's had a good sulk and a pout.";
         this.builderAdjust = 2;
     }
 }

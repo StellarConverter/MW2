@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { BaxterService } from '../baxter.service';
+import { StuffRoot } from '../classes/StuffRoot';
+import { BaseCard } from '../classes/cards';
+
 
 @Component({
   selector: 'app-reportpage',
   templateUrl: './reportpage.component.html',
-  styleUrls: ['./reportpage.component.css']
+  styleUrls: ['./reportpage.component.css'],
+  providers: [BaxterService]
 })
-export class ReportpageComponent implements OnInit {
+export class ReportpageComponent implements OnInit 
+{
 
-  constructor() { }
+  constructor(private qq : BaxterService) { }
 
-  ngOnInit() {
-  }
+  private zzz:StuffRoot;
 
+   ngOnInit()
+   {
+     this.zzz = this.qq.getStuff();
+   }
+
+   
 }
