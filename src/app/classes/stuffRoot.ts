@@ -18,7 +18,7 @@ export class StuffRoot
 
     cardRate:number;
     private currentcard: BaseCard;
-    public CurrentCard():BaseCard {return this.currentcard;}
+    public get CurrentCard():BaseCard {return this.currentcard;}
 
     deckOfCards:Deck;
 

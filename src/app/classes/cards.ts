@@ -3,13 +3,15 @@ import {StuffRoot } from './StuffRoot';
 export abstract class BaseCard
 {
     protected displayName:string;
-    public DisplayName() { return this.displayName;}
+    public get DisplayName() :string { return this.displayName;}
+
+    x:string = "hello";//lolcat -- remove this
 
     protected desc:string;
-    public Description() {return this.desc};
+    public get Description() {return this.desc};
 
     protected builderAdjust:number;
-    public BuilderAdjust():number {return this.builderAdjust;} 
+    public get BuilderAdjust():number {return this.builderAdjust;} 
 
     public ApplyCard(zzz:StuffRoot)
     {
@@ -44,7 +46,7 @@ export class Deck
             this.Shuffle();
         }
         let result = this.cards[this.cards.length-1];
-        this.cards.splice(this.cards.length - 1);//LOLCAT you are here
+        this.cards.splice(this.cards.length - 1);
         return result;
     } 
 }

@@ -29,8 +29,7 @@ export class AppComponent
   nextClick()
   {
     this.zzz.ExecuteNext();
-    let card = this.zzz.CurrentCard();
-    if (card == null)
+    if (this.zzz.CurrentCard == null)
     {
        let link = ['dash'];
        this.router.navigate(link);

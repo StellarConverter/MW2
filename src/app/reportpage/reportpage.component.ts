@@ -22,5 +22,9 @@ export class ReportpageComponent implements OnInit
      this.zzz = this.qq.getStuff();
    }
 
-   
+   private card() : BaseCard      
+    { 
+      let result =  this.zzz.CurrentCard;
+      return result;
+    }
 }
