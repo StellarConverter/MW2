@@ -19,4 +19,8 @@ export class TitlepageComponent implements OnInit
     this.zzz = this.qq.getStuff();
   }
 
+  resetEverything()
+  {
+    this.qq.Reset();
+  }
 }

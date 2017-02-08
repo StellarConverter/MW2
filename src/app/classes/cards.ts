@@ -81,7 +81,28 @@ export class Moribund extends BaseCard
     {
         super();
         this.displayName="Moribund";
-        this.desc ="A dark mood settles over The Builder.  It is unlikely that he will be able to proceed until h's had a good sulk and a pout.";
+        this.desc ="A dark mood settles over The Builder.  It is unlikely that he will be able to proceed until he's had a good sulk and a pout.";
         this.builderAdjust = 2;
+    }
+}
+
+export class WarriorVictory extends BaseCard
+{
+    constructor ()
+    {
+        super();
+        this.displayName="Victory";
+        this.desc ="You have moved to a new level";
+    }
+}
+
+
+export class WarriorFailure extends BaseCard
+{
+    constructor ()
+    {
+        super();
+        this.displayName="Failure";
+        this.desc ="You tried....   but it was not to be";
     }
 }

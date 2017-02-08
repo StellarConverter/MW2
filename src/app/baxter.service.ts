@@ -16,5 +16,11 @@ export class BaxterService
     
     return BaxterService._stuffRoot;
   }
+
+  Reset()
+  {
+     BaxterService._stuffRoot = null;//LOLCAT this oes not in fact work
+     alert("this shouldreset things but it ctually does snot");
+  }
   
 }

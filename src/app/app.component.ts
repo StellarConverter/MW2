@@ -40,4 +40,11 @@ export class AppComponent
        this.router.navigate(link);
     }
   }
+
+  AttemptDeed()
+  {
+    this.zzz.AttemptDeed();
+    let link = ['rep'];
+    this.router.navigate(link);
+  }
 }

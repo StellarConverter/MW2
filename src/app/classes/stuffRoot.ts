@@ -33,7 +33,7 @@ export class StuffRoot
         this.Gold = 0;
         this.CycleCount = 0;
 
-        this.cardRate = 3;
+        this.cardRate = 5;
         this.currentcard = null;
 
         this.Market = new Marketplace();
@@ -97,6 +97,6 @@ export class StuffRoot
 
     public AttemptDeed()
     {
-        this.Warrior.AttemptDeed();
+        this.currentcard =  this.Warrior.AttemptDeed();
     }
 }

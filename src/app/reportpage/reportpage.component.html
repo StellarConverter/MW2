@@ -1,6 +1,7 @@
-<p>
-  CARD: {{card().DisplayName}}
- so why doesnt the description work?  
-
-  
+<h2>
+  {{card().DisplayName}}
+</h2>
+  <p>
+  {{card().Description}}
 </p>
+<div *ngIf="card().BuilderAdjust>0"> Builder slowed by {{card().BuilderAdjust}} turn(s).  Builder recovery time left: {{zzz.Builder.RecoveryTime}} </div>

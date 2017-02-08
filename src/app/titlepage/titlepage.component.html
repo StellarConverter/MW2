@@ -1,4 +1,17 @@
-<p>
-  titlepage works!
-  {{zzz.Gold}}
-</p>
+
+<div *ngIf="zzz.CycleCount==0"> 
+<h1> 
+   MW Caption
+ </h1>
+ ClickNext to start
+ </div>
+
+
+
+<div *ngIf="zzz.CycleCount>0"> 
+<h1> 
+   MW Caption
+ </h1>
+ put a button here to restart...
+ <button (click)='resetEverything()'>RESET</button>
+ </div>

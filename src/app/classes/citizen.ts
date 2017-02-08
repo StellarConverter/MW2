@@ -1,4 +1,5 @@
 import {StuffRoot} from './StuffRoot';
+import {WarriorVictory, WarriorFailure, BaseCard} from './cards';
 
 export abstract class CitizenBase
 {
@@ -90,7 +91,7 @@ export class Warrior extends CitizenBase
         return ( this.XP / xpNextLevel) * 100; 
     }
     
-    public AttemptDeed()
+    public AttemptDeed(): BaseCard
     {
         let chanceGap = 100 - this.GetChanceToGetNextLevel();
         let randomNumber = 50;
@@ -99,13 +100,13 @@ export class Warrior extends CitizenBase
             //success!
             this.Level++;
             this.XP = 1;
-            alert("winner");
+            return new WarriorVictory();
         } 
         else
         {
             //failure....
             this.XP = 1;
-            alert("loser");
+            return new WarriorFailure();
         }
     }
     
