@@ -31,11 +31,14 @@ export class Merchant extends CitizenBase
 
 export class Warrior extends CitizenBase
 {
+    
     public XP: number;
     public PersonalName:string;
     public Level:number;
 
-    
+    public get MaxLevel():number { return this.levelNames.length;}
+
+    private levelNames:string[];
 
     constructor()
     {
@@ -43,6 +46,7 @@ export class Warrior extends CitizenBase
         this.PersonalName = "Konan";
         this.XP = 1;
         this.Level = 1;
+        this.levelNames = ["Loser", "scrub", "dude", "wow you win"];
         this.UpdateName();
     }
 
@@ -63,7 +67,7 @@ export class Warrior extends CitizenBase
 
     private UpdateName()
     {
-        this.Name = "Warrior: " + this.PersonalName;//LOLCAT --- this should build a name based on title, such as {0} the Mighty, etc.
+        this.Name = "Warrior: " + this.levelNames[this.Level-1] + " " + this.PersonalName;//LOLCAT --- this should build a name based on title, such as {0} the Mighty, etc.
     }
 
     public MaxXPForLevel(targetLevel:number) : number
@@ -100,7 +104,8 @@ export class Warrior extends CitizenBase
             //success!
             this.Level++;
             this.XP = 1;
-            return new WarriorVictory();
+            this.UpdateName();
+            return this.createVictoryCard();
         } 
         else
         {
@@ -108,6 +113,15 @@ export class Warrior extends CitizenBase
             this.XP = 1;
             return new WarriorFailure();
         }
+    }
+
+    public get IsMaxLevel() : boolean {return this.Level >= this.MaxLevel; }
+
+    private createVictoryCard() : WarriorVictory
+    {
+        let result = new WarriorVictory();
+        result.AdditionalText = "Your Warrior's new title is: " + this.levelNames[this.Level-1];
+        return result;
     }
     
 }

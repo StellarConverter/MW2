@@ -12,6 +12,10 @@ Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name()}})
 <router-outlet></router-outlet>
  </div>
  <HR>
+
+<div *ngIf="zzz.IsGameOver">   GAME OVER</div>
+
+<div *ngIf="!zzz.IsGameOver">
  Check out my mad routing skills...
  <a routerLink = "title">title</a> |<a routerLink = "dash">Dash</a> | <a routerLink = "rep">Report</a> 
  <HR>
@@ -25,3 +29,5 @@ Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name()}})
 
 <button (click)='AttemptDeed()'>Attempt Deed</button>
  {{zzz.Warrior.GetChanceString()}}
+</div>
+ 

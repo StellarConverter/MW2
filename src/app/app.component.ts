@@ -44,7 +44,18 @@ export class AppComponent
   AttemptDeed()
   {
     this.zzz.AttemptDeed();
-    let link = ['rep'];
-    this.router.navigate(link);
+
+    if (this.zzz.IsGameOver)
+    {
+      alert("abou to navigate to title... so why does it not work?");
+      let link = ['title'];
+      //LOLCAT -- this does not appear to be working
+      this.router.navigate(link);      
+    }
+    else
+    {
+      let link = ['rep'];
+      this.router.navigate(link);
+    }
   }
 }

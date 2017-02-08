@@ -99,4 +99,6 @@ export class StuffRoot
     {
         this.currentcard =  this.Warrior.AttemptDeed();
     }
+
+    public get IsGameOver() { return this.Warrior.IsMaxLevel; }
 }

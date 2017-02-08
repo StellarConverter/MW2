@@ -3,15 +3,20 @@
 <h1> 
    MW Caption
  </h1>
- ClickNext to start
+ The goal is to get your Warrior to Level {{zzz.Warrior.MaxLevel}}
+ <BR>
+ Click Next to start
+
+ 
  </div>
 
-
-
-<div *ngIf="zzz.CycleCount>0"> 
+<div *ngIf="zzz.CycleCount>0 && !ZZZ.IsGameOver"> 
 <h1> 
    MW Caption
  </h1>
  put a button here to restart...
  <button (click)='resetEverything()'>RESET</button>
  </div>
+
+
+<div *ngIf="zzz.IsGameOver"> game over </div>

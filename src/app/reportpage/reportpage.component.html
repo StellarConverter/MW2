@@ -5,3 +5,4 @@
   {{card().Description}}
 </p>
 <div *ngIf="card().BuilderAdjust>0"> Builder slowed by {{card().BuilderAdjust}} turn(s).  Builder recovery time left: {{zzz.Builder.RecoveryTime}} </div>
+<div *ngIf="card().AdditionalText!=null"> <h3> {{card().AdditionalText}} </h3> </div>

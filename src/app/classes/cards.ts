@@ -13,6 +13,10 @@ export abstract class BaseCard
     protected builderAdjust:number;
     public get BuilderAdjust():number {return this.builderAdjust;} 
 
+    protected additionalText:string;
+    public get AdditionalText():string {return this.additionalText;}
+    public set AdditionalText(val:string) { this.additionalText = val;} 
+
     public ApplyCard(zzz:StuffRoot)
     {
         if (this.builderAdjust != null)
