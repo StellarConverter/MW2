@@ -16,7 +16,6 @@ import { BaxterService } from './baxter.service';
 })
 export class AppComponent 
 {
-  title = 'app works!';
   zzz:StuffRoot;
 
   constructor(private qq:BaxterService, private router:Router) { }
@@ -45,7 +44,7 @@ export class AppComponent
   {
     this.zzz.AttemptDeed();
 
-    if (this.zzz.IsGameOver)
+    if (this.zzz.Warrior.IsMaxLevel)
     {
       alert("abou to navigate to title... so why does it not work?");
       let link = ['title'];

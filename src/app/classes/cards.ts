@@ -5,8 +5,6 @@ export abstract class BaseCard
     protected displayName:string;
     public get DisplayName() :string { return this.displayName;}
 
-    x:string = "hello";//lolcat -- remove this
-
     protected desc:string;
     public get Description() {return this.desc};
 
@@ -23,14 +21,12 @@ export abstract class BaseCard
         {
             zzz.Builder.RecoveryTime += this.builderAdjust;
         }
-
-        //LOLCAT -- do other stuff
     }
 }
 
 export class Deck
 {
-    cards:BaseCard[];
+    private cards:BaseCard[];
 
    constructor()
     {
@@ -39,8 +35,21 @@ export class Deck
 
     public Shuffle()
     {
-        //LOLCAT -- this needs to be randomized
-        this.cards = [new Flummoxed(), new Leery(), new Moribund()];
+        let allCards = this.getAllPlayingCards();
+        let allCardsLength = allCards.length; 
+        this.cards = [];
+
+        for (let idx = 0; idx < allCardsLength ; idx++)
+        {
+           let targetIdx =  Math.floor(Math.random() * allCards.length);
+           this.cards.push(allCards[targetIdx]);
+           allCards.splice(targetIdx, 1);
+        }
+    }
+
+    private getAllPlayingCards() : BaseCard[]
+    {
+        return  [new Flummoxed(), new Leery(), new Moribund(), new Mercurial(), new NothingHappens()];
     }
 
     public TakeCard() : BaseCard
@@ -108,5 +117,27 @@ export class WarriorFailure extends BaseCard
         super();
         this.displayName="Failure";
         this.desc ="You tried....   but it was not to be";
+    }
+}
+
+
+export class Mercurial extends BaseCard
+{
+    constructor ()
+    {
+        super();
+        this.displayName="Mercurial";
+        this.desc = "The Builder stalks off the work site in a fit of rage.  Sometimes the Builder's poor mastery of his moods is his undoing.";
+        this.builderAdjust = 2;
+    }
+}
+
+export class NothingHappens extends BaseCard
+{
+    constructor ()
+    {
+        super();
+        this.displayName="Nothing Happens";
+        this.desc = "Nothing particularly interesting happens today.";
     }
 }

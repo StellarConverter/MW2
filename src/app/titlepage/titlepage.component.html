@@ -1,22 +1,31 @@
 
 <div *ngIf="zzz.CycleCount==0"> 
 <h1> 
-   MW Caption
+   {{GameTitle}}
  </h1>
- The goal is to get your Warrior to Level {{zzz.Warrior.MaxLevel}}
+
+ Upgrade the Market to make more money.
  <BR>
- Click Next to start
+ Upgrade the Camp to train your Warrior faster.
+ <BR>
+ Attempt deeds to increase your Warriro's level - the more training you have the more certain your victory.  The goal is to get your Warrior to Level {{zzz.Warrior.MaxLevel}}.
+ <BR>
+ * <i>Occasionally bad stuff will happen.</i>
+ <h4>
+   <BR>
+   Warrior's Name: <input [(ngModel)]="this.zzz.Warrior.PersonalName"/> 
+   <BR>
+ Click Start to start
+ </h4>
 
  
  </div>
 
-<div *ngIf="zzz.CycleCount>0 && !ZZZ.IsGameOver"> 
+<div *ngIf="zzz.IsGaveActive"> 
 <h1> 
-   MW Caption
+   {{GameTitle}}
  </h1>
  put a button here to restart...
  <button (click)='resetEverything()'>RESET</button>
  </div>
 
-
-<div *ngIf="zzz.IsGameOver"> game over </div>

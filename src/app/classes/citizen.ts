@@ -33,8 +33,14 @@ export class Warrior extends CitizenBase
 {
     
     public XP: number;
-    public PersonalName:string;
     public Level:number;
+
+     public PersonalName:string;
+//    private personalName:string;
+//    public get PersonalName():string {return this.personalName;} 
+//    public set PersonalName(val:string) {this.personalName = val; this.UpdateName();}
+//LOLCAT -- this is where the next bit of work needs to be, so that the display name always gets updated 
+
 
     public get MaxLevel():number { return this.levelNames.length;}
 
@@ -44,9 +50,9 @@ export class Warrior extends CitizenBase
     {
         super();
         this.PersonalName = "Konan";
-        this.XP = 1;
+        this.XP = 0;
         this.Level = 1;
-        this.levelNames = ["Loser", "scrub", "dude", "wow you win"];
+        this.levelNames = ["Meager", "Ample", "Sturdy", "Tough", "Mighty"];
         this.UpdateName();
     }
 

@@ -1,26 +1,23 @@
-<h1>
-  {{title}}
-</h1>
 <HR>
 Gold: {{zzz.Gold}}
+<BR>
+Warrior Level: {{zzz.Warrior.Level}} of {{zzz.Warrior.MaxLevel}}
 <BR>
 Market Level: {{zzz.Market.Level}} ({{zzz.Market.Name()}})
 <BR>
 Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name()}})
 <HR>
+<div *ngIf="zzz.IsGaveActive"> <button (click)='nextClick()'>NEXT</button></div>
+<div *ngIf="zzz.CycleCount == 0"> <button (click)='nextClick()'>Start</button></div>
+<HR>
 <div>
 <router-outlet></router-outlet>
  </div>
  <HR>
-
-<div *ngIf="zzz.IsGameOver">   GAME OVER</div>
-
-<div *ngIf="!zzz.IsGameOver">
+<div *ngIf="zzz.IsGaveActive">
  Check out my mad routing skills...
  <a routerLink = "title">title</a> |<a routerLink = "dash">Dash</a> | <a routerLink = "rep">Report</a> 
  <HR>
- <button (click)='nextClick()'>NEXT</button>
- <BR>
  <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='zzz.UpgradeMarket()'>Upgrade Market</button> </div>
  <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
 

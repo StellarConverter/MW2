@@ -11,12 +11,14 @@ import { StuffRoot } from '../classes/StuffRoot';
 export class TitlepageComponent implements OnInit
 {
    zzz:StuffRoot;
+   public GameTitle:string;
 
   constructor(private qq:BaxterService) { }
 
   ngOnInit() 
   {
     this.zzz = this.qq.getStuff();
+    this.GameTitle = "Mighty Warrior";
   }
 
   resetEverything()

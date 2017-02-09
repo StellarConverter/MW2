@@ -100,5 +100,5 @@ export class StuffRoot
         this.currentcard =  this.Warrior.AttemptDeed();
     }
 
-    public get IsGameOver() { return this.Warrior.IsMaxLevel; }
+    public get IsGaveActive() { return !this.Warrior.IsMaxLevel && this.CycleCount > 0; }
 }
