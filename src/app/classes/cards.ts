@@ -15,11 +15,19 @@ export abstract class BaseCard
     public get AdditionalText():string {return this.additionalText;}
     public set AdditionalText(val:string) { this.additionalText = val;} 
 
+    protected goldAdjust:number;
+    public get GoldAdjust():number {return this.goldAdjust;} 
+
     public ApplyCard(zzz:StuffRoot)
     {
         if (this.builderAdjust != null)
         {
             zzz.Builder.RecoveryTime += this.builderAdjust;
+        }
+
+        if (this.GoldAdjust != null)
+        {
+            zzz.Gold += this.GoldAdjust;
         }
     }
 }
@@ -49,7 +57,11 @@ export class Deck
 
     private getAllPlayingCards() : BaseCard[]
     {
-        return  [new Flummoxed(), new Leery(), new Moribund(), new Mercurial(), new NothingHappens()];
+        
+        return [
+            new NothingHappens(),
+            new Flummoxed(), new Leery(), new Moribund(), new Mercurial(), 
+            new BeatenSoundly(), new MagicBeans(), new ScandalousLeggings(), new Bamboozler, new BoldLimericks()];
     }
 
     public TakeCard() : BaseCard
@@ -139,5 +151,62 @@ export class NothingHappens extends BaseCard
         super();
         this.displayName="Nothing Happens";
         this.desc = "Nothing particularly interesting happens today.";
+    }
+}
+
+export class BeatenSoundly extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Beaten Soundly";
+        this.desc = "The merchant teases the Warrior, and is beaten soundly.  It requires some gold to heal the Merchant.";
+        this.goldAdjust = -5;
+    }
+}
+
+export class MagicBeans extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Magic Beans";
+        this.desc = "The merchant invests the Kingdom's gold in magic beans.  They don't pan out.";
+        this.goldAdjust = -5;
+    }
+}
+
+export class ScandalousLeggings extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Scandalous Leggings";
+        this.desc = "The merchant is spotted waring leggings of a scandalous nature in a neighhboring village.  It costs money to spring him from jail.";
+        this.goldAdjust = -10;
+    }
+}
+
+export class BoldLimericks extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Bold Limericks";
+        this.desc = "The merchant is overheard reciting limericks of a bold nature in a neighhboring village.  It costs money to spring him from jail.";
+        this.goldAdjust = -7;
+    }
+}
+
+
+
+export class Bamboozler extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Bamboozler";
+        this.desc = "The merchant manages to bamboozle some hapless citizens in a neighhboring village.  His winnings are confiscated (for the good of our Kingdom).";
+        this.goldAdjust = 10;
     }
 }

@@ -8,7 +8,6 @@ export abstract class CitizenBase
     public abstract GetSummary() : string;
 }
 
-
 export class Merchant extends CitizenBase
 {
     constructor()
@@ -35,11 +34,13 @@ export class Warrior extends CitizenBase
     public XP: number;
     public Level:number;
 
-     public PersonalName:string;
-//    private personalName:string;
-//    public get PersonalName():string {return this.personalName;} 
-//    public set PersonalName(val:string) {this.personalName = val; this.UpdateName();}
-//LOLCAT -- this is where the next bit of work needs to be, so that the display name always gets updated 
+    private personalName:string;
+    public get PersonalName():string {return this.personalName;} 
+    public set PersonalName(val:string)
+    {
+        this.personalName = val;
+        this.UpdateName();
+    }
 
 
     public get MaxLevel():number { return this.levelNames.length;}
@@ -49,11 +50,10 @@ export class Warrior extends CitizenBase
     constructor()
     {
         super();
-        this.PersonalName = "Konan";
         this.XP = 0;
         this.Level = 1;
-        this.levelNames = ["Meager", "Ample", "Sturdy", "Tough", "Mighty"];
-        this.UpdateName();
+        this.levelNames = ["Scrawny", "Meager", "Ample", "Sturdy", "Tough", "Mighty"];
+        this.PersonalName = "Konan";
     }
 
     Heartbeat(z:StuffRoot)
@@ -73,12 +73,17 @@ export class Warrior extends CitizenBase
 
     private UpdateName()
     {
-        this.Name = "Warrior: " + this.levelNames[this.Level-1] + " " + this.PersonalName;//LOLCAT --- this should build a name based on title, such as {0} the Mighty, etc.
+        this.Name = "Warrior: " + this.levelNames[this.Level-1] + " " + this.personalName;
     }
 
     public MaxXPForLevel(targetLevel:number) : number
     {
         return targetLevel * 10;
+    }
+
+    public get NextLevelDeedName() : string
+    {
+        return this.levelNames[this.Level];
     }
 
     public GetChanceString(): string
@@ -104,7 +109,7 @@ export class Warrior extends CitizenBase
     public AttemptDeed(): BaseCard
     {
         let chanceGap = 100 - this.GetChanceToGetNextLevel();
-        let randomNumber = 50;
+        let randomNumber = 50; // LOLCAT -- this is not right
         if (randomNumber >= chanceGap)
         {
             //success!
@@ -117,7 +122,7 @@ export class Warrior extends CitizenBase
         {
             //failure....
             this.XP = 1;
-            return new WarriorFailure();
+            return this.createFailureCard();
         }
     }
 
@@ -129,6 +134,13 @@ export class Warrior extends CitizenBase
         result.AdditionalText = "Your Warrior's new title is: " + this.levelNames[this.Level-1];
         return result;
     }
+
+    private createFailureCard() : WarriorVictory
+    {
+        let result = new WarriorFailure();
+        result.AdditionalText = "You remain '" + this.levelNames[this.Level-1] + "'";
+        return result;
+    }    
     
 }
 
