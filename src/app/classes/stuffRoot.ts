@@ -102,4 +102,5 @@ export class StuffRoot
 
     public get IsGaveActive() { return !this.Warrior.IsMaxLevel && this.CycleCount > 0; }
 
+    public get IsGameComplete() { return this.Warrior.IsMaxLevel;}
 }
