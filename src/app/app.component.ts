@@ -55,4 +55,16 @@ export class AppComponent
       this.router.navigate(link);
     }
   }
+
+  UpgradeMarket()
+  {
+    this.zzz.UpgradeMarket();
+  }
+
+  UpgradeCamp()
+  {
+    this.zzz.UpgradeCamp();
+
+  }
+
 }
