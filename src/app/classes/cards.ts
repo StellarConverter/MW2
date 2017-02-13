@@ -13,10 +13,16 @@ export abstract class BaseCard
 
     protected additionalText:string;
     public get AdditionalText():string {return this.additionalText;}
-    public set AdditionalText(val:string) { this.additionalText = val;} 
+    public set AdditionalText(val:string) { this.additionalText = val;}
 
     protected goldAdjust:number;
-    public get GoldAdjust():number {return this.goldAdjust;} 
+    public get GoldAdjust():number {return this.goldAdjust;}
+
+    protected warriorResetXP:boolean;
+    public get WarriorResetXP() { return this.warriorResetXP;}
+
+    protected xpAdjust:number;
+    public get XPAdjuist() { return this.xpAdjust;}     
 
     public ApplyCard(zzz:StuffRoot)
     {
@@ -28,6 +34,16 @@ export abstract class BaseCard
         if (this.GoldAdjust != null)
         {
             zzz.Gold += this.GoldAdjust;
+        }
+
+        if (this.WarriorResetXP == true)
+        {
+            zzz.Warrior.XP = 0;
+        }
+
+        if (this.xpAdjust != null)
+        {
+            zzz.Warrior.XP += this.XPAdjuist; 
         }
     }
 }
@@ -57,11 +73,11 @@ export class Deck
 
     private getAllPlayingCards() : BaseCard[]
     {
-        
         return [
             new NothingHappens(),
             new Flummoxed(), new Leery(), new Moribund(), new Mercurial(), 
-            new BeatenSoundly(), new MagicBeans(), new ScandalousLeggings(), new Bamboozler, new BoldLimericks()];
+            new BeatenSoundly(), new MagicBeans(), new ScandalousLeggings(), new Bamboozler, new BoldLimericks(),
+            new MortalWombat(), new DireHedgehog()];
     }
 
     public TakeCard() : BaseCard
@@ -162,6 +178,7 @@ export class BeatenSoundly extends BaseCard
         this.displayName="Beaten Soundly";
         this.desc = "The merchant teases the Warrior, and is beaten soundly.  It requires some gold to heal the Merchant.";
         this.goldAdjust = -5;
+        this.xpAdjust = 1;
     }
 }
 
@@ -182,7 +199,7 @@ export class ScandalousLeggings extends BaseCard
     {
         super();
         this.displayName="Scandalous Leggings";
-        this.desc = "The merchant is spotted waring leggings of a scandalous nature in a neighhboring village.  It costs money to spring him from jail.";
+        this.desc = "The merchant is spotted wearing leggings of a scandalous nature in a neighhboring village.  It costs money to spring him from jail.";
         this.goldAdjust = -10;
     }
 }
@@ -208,5 +225,27 @@ export class Bamboozler extends BaseCard
         this.displayName="Bamboozler";
         this.desc = "The merchant manages to bamboozle some hapless citizens in a neighhboring village.  His winnings are confiscated (for the good of our Kingdom).";
         this.goldAdjust = 10;
+    }
+}
+
+export class MortalWombat extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Mortal Wombat";
+        this.desc = "The Warrior attempts to defeat a giant wombat in combat - The Warrior is thrashed severely.";
+        this.warriorResetXP = true;
+    }
+}
+
+export class DireHedgehog extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Dire Hedgehog";
+        this.desc = "The Warrior tussles with, and defeats, a Dire Hedgehog.  The Kingdom is safe once again!";
+        this.xpAdjust = 5;
     }
 }

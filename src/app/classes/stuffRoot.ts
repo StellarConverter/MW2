@@ -101,4 +101,5 @@ export class StuffRoot
     }
 
     public get IsGaveActive() { return !this.Warrior.IsMaxLevel && this.CycleCount > 0; }
+
 }

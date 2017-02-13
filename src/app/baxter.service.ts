@@ -12,6 +12,12 @@ export class BaxterService
     if (BaxterService._stuffRoot == null)
     {
       BaxterService._stuffRoot = new StuffRoot();
+
+
+//cheat zone
+      //BaxterService._stuffRoot.Gold = 9999;
+      //BaxterService._stuffRoot.Camp.Level = 100;
+
     }
     
     return BaxterService._stuffRoot;

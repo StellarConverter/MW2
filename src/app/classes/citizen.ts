@@ -30,8 +30,26 @@ export class Merchant extends CitizenBase
 
 export class Warrior extends CitizenBase
 {
-    
-    public XP: number;
+    protected xp: number;
+    public get XP() { return this.xp;}
+    public set XP(val:number) 
+    {
+        let maxXPForTHisLevel = this.MaxXPForLevel(this.Level);
+        if (val > maxXPForTHisLevel)
+        {
+            this.xp = maxXPForTHisLevel; 
+        }
+        else if (val < 0)
+        {
+            this.xp = 0;
+        }
+        else
+        {
+            this.xp = val;
+        }
+    }
+
+
     public Level:number;
 
     private personalName:string;
@@ -59,11 +77,6 @@ export class Warrior extends CitizenBase
     Heartbeat(z:StuffRoot)
     {
         this.XP += z.Camp.Level;
-        let maxXPForTHisLevel = this.MaxXPForLevel(this.Level);
-        if (this.XP > maxXPForTHisLevel)
-        {
-            this.XP = maxXPForTHisLevel;
-        }
     }
 
     public GetSummary() : string

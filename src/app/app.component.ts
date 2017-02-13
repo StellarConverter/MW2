@@ -46,9 +46,7 @@ export class AppComponent
 
     if (this.zzz.Warrior.IsMaxLevel)
     {
-      alert("abou to navigate to title... so why does it not work?");
       let link = ['title'];
-      //LOLCAT -- this does not appear to be working
       this.router.navigate(link);      
     }
     else

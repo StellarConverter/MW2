@@ -32,3 +32,12 @@
  <button (click)='resetEverything()'>RESET</button>
  </div>
 
+
+<div *ngIf="zzz.IsGameComplete">
+<h1> 
+   {{GameTitle}}
+ </h1>
+ You have won!  Everyone in the Kingdom is very happy for you.   It took you {{zzz.CycleCount}} rounds. 
+
+
+</div>
