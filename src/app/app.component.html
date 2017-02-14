@@ -15,9 +15,6 @@ Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name}})
  </div>
  <HR>
 <div *ngIf="zzz.IsGaveActive">
- Check out my mad routing skills...
- <a routerLink = "title">title</a> |<a routerLink = "dash">Dash</a> | <a routerLink = "rep">Report</a> 
- <HR>
  <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
  <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
 
