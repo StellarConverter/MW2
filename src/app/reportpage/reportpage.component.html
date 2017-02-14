@@ -4,6 +4,8 @@
   <p>
   {{card().Description}}
 </p>
+<div *ngIf="card().BuilderAdjust>0"><img src="./../../res/builder.png"/></div>
+
 <div *ngIf="card().BuilderAdjust>0"> Builder slowed by {{card().BuilderAdjust}} turn(s).  Builder recovery time left: {{zzz.Builder.RecoveryTime}} </div>
 <div *ngIf="card().GoldAdjust<0"> Gold lost: {{-card().GoldAdjust}}.  Kingdom gold is now {{zzz.Gold}} </div>
 <div *ngIf="card().GoldAdjust>0"> Gold gained: {{card().GoldAdjust}}.  Kingdom gold is now {{zzz.Gold}} </div>

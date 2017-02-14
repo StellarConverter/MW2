@@ -1,6 +1,6 @@
 import { CitizenBase , Merchant, Warrior, Builder} from './citizen';
 import {Marketplace, ArmyCamp} from './buildings';
-import {Deck, BaseCard } from './cards';
+import {Deck, BaseCard, UpgradeMarket, UpgradeCamp } from './cards';
 
 export class StuffRoot
 {
@@ -75,6 +75,9 @@ export class StuffRoot
             this.Gold -= price;
             this.Market.Level++;
             this.Builder.RecoveryTime+= this.Market.Level;
+            this.currentcard = new UpgradeMarket();
+            this.currentcard.AdditionalText="New Market Level: " + this.Market.Name;
+
         }
     }
 
@@ -92,6 +95,8 @@ export class StuffRoot
             this.Gold -= price;
             this.Camp.Level++;
             this.Builder.RecoveryTime+= this.Camp.Level;
+           this.currentcard = new UpgradeCamp();
+           this.currentcard.AdditionalText="New Camp Level: " + this.Camp.Name;
         }
     }
 

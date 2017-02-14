@@ -256,7 +256,6 @@ export class UpgradeMarket extends BaseCard
     {
         super();
         this.displayName="Market Upgraded";
-        this.desc = "The Market has been upgraded";
     }
 }
 
@@ -267,6 +266,5 @@ export class UpgradeCamp extends BaseCard
     {
         super();
         this.displayName="Camp Upgraded";
-        this.desc = "The Camp has been upgraded";
     }
 }

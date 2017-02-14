@@ -3,9 +3,9 @@ Gold: {{zzz.Gold}}
 <BR>
 Warrior Level: {{zzz.Warrior.Level}} of {{zzz.Warrior.MaxLevel}}
 <BR>
-Market Level: {{zzz.Market.Level}} ({{zzz.Market.Name()}})
+Market Level: {{zzz.Market.Level}} ({{zzz.Market.Name}})
 <BR>
-Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name()}})
+Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name}})
 <HR>
 <div *ngIf="zzz.IsGaveActive"> <button (click)='nextClick()'>NEXT</button></div>
 <div *ngIf="zzz.CycleCount == 0"> <button (click)='nextClick()'>Start</button></div>
@@ -18,10 +18,10 @@ Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name()}})
  Check out my mad routing skills...
  <a routerLink = "title">title</a> |<a routerLink = "dash">Dash</a> | <a routerLink = "rep">Report</a> 
  <HR>
- <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='zzz.UpgradeMarket()'>Upgrade Market</button> </div>
+ <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
  <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
 
- <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='zzz.UpgradeCamp()'>Upgrade Camp</button> </div>
+ <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='UpgradeCamp()'>Upgrade Camp</button> </div>
  <div *ngIf="!zzz.CanUpgradeCamp()"> Gold needed to upgrade Camp: {{zzz.Camp.GetUpgradePrice()}} </div>
 
 <button (click)='AttemptDeed()'>Attempt {{zzz.Warrior.NextLevelDeedName}} Deed</button>

@@ -30,13 +30,11 @@ export class AppComponent
     this.zzz.ExecuteNext();
     if (this.zzz.CurrentCard == null)
     {
-       let link = ['dash'];
-       this.router.navigate(link);
+       this.nav("dash");
     }
     else
     {
-       let link = ['rep'];
-       this.router.navigate(link);
+       this.nav("rep");
     }
   }
 
@@ -46,25 +44,30 @@ export class AppComponent
 
     if (this.zzz.Warrior.IsMaxLevel)
     {
-      let link = ['title'];
-      this.router.navigate(link);      
+      this.nav("title");      
     }
     else
     {
-      let link = ['rep'];
-      this.router.navigate(link);
+      this.nav("rep");
     }
   }
 
   UpgradeMarket()
   {
     this.zzz.UpgradeMarket();
+    this.nav("rep");
   }
 
   UpgradeCamp()
   {
-    this.zzz.UpgradeCamp();
+    this.zzz.UpgradeCamp(); 
+    this.nav("rep");
+  }
 
+  private nav(target:string)
+  {
+       let link = [target];
+       this.router.navigate(link);
   }
 
 }

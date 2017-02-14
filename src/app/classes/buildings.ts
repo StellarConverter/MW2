@@ -20,7 +20,7 @@ export abstract class BuildingBase
         }
     }       
 
-    public Name():string
+    public get Name():string
     {
         if (this.Level < this.levelNames.length )
         {
