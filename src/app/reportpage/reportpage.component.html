@@ -4,12 +4,10 @@
   <p>
   {{card().Description}}
 </p>
-<div *ngIf="card().BuilderAdjust>0"><img src="./../../res/builder.png"/></div>
-
-<div *ngIf="card().BuilderAdjust>0"> Builder slowed by {{card().BuilderAdjust}} turn(s).  Builder recovery time left: {{zzz.Builder.RecoveryTime}} </div>
+<div *ngIf="card().BuilderAdjust>0">   <img src="./assets/res/builder.png"/> Builder slowed by {{card().BuilderAdjust}} turn(s).  Builder recovery time left: {{zzz.Builder.RecoveryTime}} </div>
 <div *ngIf="card().GoldAdjust<0"> Gold lost: {{-card().GoldAdjust}}.  Kingdom gold is now {{zzz.Gold}} </div>
 <div *ngIf="card().GoldAdjust>0"> Gold gained: {{card().GoldAdjust}}.  Kingdom gold is now {{zzz.Gold}} </div>
-<div *ngIf="card().AdditionalText!=null"> <h3> {{card().AdditionalText}} </h3> </div>
 <div *ngIf="card().WarriorResetXP==true"> The Warrior loses all XP for the current level</div>
 <div *ngIf="card().XPAdjuist!=null"> The Warrior gains {{card().XPAdjuist}} XP</div>
 
+<div *ngIf="card().AdditionalText!=null"> <h3> {{card().AdditionalText}} </h3> </div>
