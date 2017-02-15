@@ -1,0 +1,9 @@
+div.barbox
+{
+    border-style: solid;
+    border-width: 4px;
+    border-color: brown;
+    float: left;
+    height:70px;
+    text-align: center;
+}

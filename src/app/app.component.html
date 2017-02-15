@@ -1,14 +1,26 @@
-Gold: {{zzz.Gold}}
+<div class = "barbox">
+ Gold:
+ <BR>
+ {{zzz.Gold}}
+  <BR>
+ Day
+ <BR>
+ {{zzz.CycleCount}}
+</div>
+
 <BR>
 Warrior Level: {{zzz.Warrior.Level}} of {{zzz.Warrior.MaxLevel}}
 <BR>
 Market Level: {{zzz.Market.Level}} ({{zzz.Market.Name}})
 <BR>
 Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name}})
+
+<br style="clear: left;" />
 <HR>
 <div *ngIf="zzz.IsGaveActive"> <button (click)='nextClick()'>NEXT</button></div>
 <div *ngIf="zzz.CycleCount == 0"> <button (click)='nextClick()'>Start</button></div>
 <HR>
+
 <div>
 <router-outlet></router-outlet>
  </div>
