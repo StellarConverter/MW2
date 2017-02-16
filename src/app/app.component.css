@@ -34,3 +34,18 @@ div.statusbar
     border-width: 1px;
     background-color: darkred;
 }
+
+div.buttonBar
+{
+    background-image: url("./assets/res/ButtonBarBackdrop.png");
+    background-repeat: repeat-x;
+    padding: 10px;
+}
+
+div.bottomBar
+{
+    border-style: solid;
+    border-width: 1px;
+    background-color: #201010;
+    color: lightblue;
+}

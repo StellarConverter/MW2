@@ -129,14 +129,14 @@ export class Warrior extends CitizenBase
         {
             //success!
             this.Level++;
-            this.XP = 1;
+            this.XP = 0;
             this.UpdateName();
             return this.createVictoryCard();
         } 
         else
         {
             //failure....
-            this.XP = 1;
+            this.XP = 0;
             return this.createFailureCard();
         }
     }
