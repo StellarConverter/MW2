@@ -1,21 +1,49 @@
-<div class = "barbox">
- Gold:
- <BR>
+<div class="statusbar">
+<div class = "barbox" >
+<div class = "barboxtop">
+ Gold
+ </div>
  {{zzz.Gold}}
-  <BR>
+</div>
+
+<div class = "barbox">
+<div class = "barboxtop">
+ Warrior
+ </div>
+ {{ zzz.Warrior.Title}}
+</div>
+
+
+<div class = "barbox">
+<div class = "barboxtop">
+ Market
+ </div>
+ {{zzz.Market.Name}}
+</div>
+
+<div class = "barbox">
+<div class = "barboxtop">
+ Camp
+ </div>
+ {{zzz.Camp.Name}}
+</div>
+
+
+<div class = "barbox">
+<div class = "barboxtop">
  Day
- <BR>
+ </div>
  {{zzz.CycleCount}}
 </div>
 
-<BR>
-Warrior Level: {{zzz.Warrior.Level}} of {{zzz.Warrior.MaxLevel}}
-<BR>
-Market Level: {{zzz.Market.Level}} ({{zzz.Market.Name}})
-<BR>
-Camp Level: {{zzz.Camp.Level}} ({{zzz.Camp.Name}})
-
 <br style="clear: left;" />
+
+</div>
+
+
+
+
+
 <HR>
 <div *ngIf="zzz.IsGaveActive"> <button (click)='nextClick()'>NEXT</button></div>
 <div *ngIf="zzz.CycleCount == 0"> <button (click)='nextClick()'>Start</button></div>

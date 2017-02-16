@@ -86,8 +86,10 @@ export class Warrior extends CitizenBase
 
     private UpdateName()
     {
-        this.Name = "Warrior: " + this.levelNames[this.Level-1] + " " + this.personalName;
+        this.Name = "Warrior: " + this.Title + " " + this.personalName;
     }
+
+    public get Title() {return this.levelNames[this.Level-1];}
 
     public MaxXPForLevel(targetLevel:number) : number
     {
