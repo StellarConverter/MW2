@@ -13,7 +13,6 @@
  {{ zzz.Warrior.Title}}
 </div>
 
-
 <div class = "barbox">
 <div class = "barboxtop">
  Market
@@ -39,26 +38,34 @@
 <br style="clear: left;" />
 </div>
 
+<div class ="buttonBar">
+    <div *ngIf="zzz.CycleCount == 0">
+        Warrior's Name: <input [(ngModel)]="this.zzz.Warrior.PersonalName" autofocus/>
+        <button (click)='nextClick()'>Start Game!</button> 
+    </div>
 
-<div *ngIf="zzz.IsGaveActive" class = "buttonBar"> <button (click)='nextClick()'>Next Day...</button></div>
-<div *ngIf="zzz.CycleCount == 0" class = "buttonBar"> <button (click)='nextClick()'>Start</button></div>
+    <div *ngIf="zzz.IsGaveActive">
+         <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
+         <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
+
+        <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='UpgradeCamp()'>Upgrade Camp</button> </div>
+         <div *ngIf="!zzz.CanUpgradeCamp()"> Gold needed to upgrade Camp: {{zzz.Camp.GetUpgradePrice()}} </div>
+
+        <div *ngIf="zzz.Warrior.XP > 0">
+            <button (click)='AttemptDeed()'>Attempt {{zzz.Warrior.NextLevelDeedName}} Deed</button>
+            {{zzz.Warrior.GetChanceString()}}
+        </div>
+
+        <BR>
+        <div *ngIf="zzz.IsGaveActive" > <button (click)='nextClick()'>Next Day...</button></div>
+    </div>
+</div>
+
+
 
 
 <div>
 <router-outlet></router-outlet>
- </div>
-
-<div *ngIf="zzz.IsGaveActive" class="bottomBar">
- <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
- <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
-
- <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='UpgradeCamp()'>Upgrade Camp</button> </div>
- <div *ngIf="!zzz.CanUpgradeCamp()"> Gold needed to upgrade Camp: {{zzz.Camp.GetUpgradePrice()}} </div>
-
-<div *ngIf="zzz.Warrior.XP > 0">
-<button (click)='AttemptDeed()'>Attempt {{zzz.Warrior.NextLevelDeedName}} Deed</button>
- {{zzz.Warrior.GetChanceString()}}
 </div>
 
-</div>
  
