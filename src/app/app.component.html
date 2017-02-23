@@ -44,6 +44,61 @@
         <button (click)='nextClick()'>Start Game!</button> 
     </div>
 
+    
+    <div class="grouperLeftLevel">
+        <div class="grouperLeftTop" style="background:url('./assets/res/market.png') no-repeat">
+        Market
+       </div>
+        {{zzz.Market.Name}}
+    </div>
+    <div class="grouperRightLevel">
+        {{zzz.Market.Level}} Gold / Day
+        <BR>
+        <BR>
+        <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
+        <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
+    </div>
+    <br style="clear: left;" />
+
+    <BR>
+
+    <div class="grouperLeftLevel">
+        <div class="grouperLeftTop" style="background:url('./assets/res/camp.png') no-repeat">
+        Camp
+       </div>
+        {{zzz.Camp.Name}}
+    </div>
+    <div class="grouperRightLevel">
+        {{zzz.Camp.Level}} XP / Day
+        <BR>
+        <BR>
+        <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='UpgradeCamp()'>Upgrade Camp</button> </div>
+        <div *ngIf="!zzz.CanUpgradeCamp()"> Gold needed to upgrade Camp: {{zzz.Camp.GetUpgradePrice()}} </div>        
+    </div>
+    <br style="clear: left;" />
+
+    <BR>
+
+    <div class="grouperLeftLevel">
+        <div class="grouperLeftTop" style="background:url('./assets/res/warrior.png') no-repeat">
+        Warrior
+       </div>
+        {{zzz.Warrior.Title}}
+    </div>
+    <div class="grouperRightLevel">
+        {{zzz.Warrior.Name}}
+        <BR>
+        <div *ngIf="zzz.Warrior.XP > 0">
+            <button (click)='AttemptDeed()'>Attempt {{zzz.Warrior.NextLevelDeedName}} Deed</button>
+            <BR>
+            {{zzz.Warrior.GetChanceString()}}
+        </div>
+    </div>
+    <br style="clear: left;" />
+
+
+
+
     <div *ngIf="zzz.IsGaveActive">
          <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
          <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>

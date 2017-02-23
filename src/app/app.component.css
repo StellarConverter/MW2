@@ -54,3 +54,33 @@ div.bottomBar
     background-color: #201010;
     color: lightblue;
 }
+
+
+div.grouperLeftLevel
+{
+    border-style: solid;
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    color:lightblue;
+    height: 80px;
+    width:100px;
+    background-color: darkred;
+}
+
+div.grouperLeftTop
+{
+    font-size:12px;
+    height:55px;
+}
+
+
+div.grouperRightLevel
+{
+    border-style: solid;
+    float: left;
+    font-size: 20px;
+    color:lightblue;
+    height: 80px;    
+    width: 350px;
+}
