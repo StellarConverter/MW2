@@ -5,7 +5,7 @@ div.barbox
     border-color: darkred;
     background-color: brown;
     color: lightblue;
-    font-size: 25px;
+    font-size: 20px;
     float: left;
     text-align: center;
 
@@ -78,9 +78,11 @@ div.grouperLeftTop
 div.grouperRightLevel
 {
     border-style: solid;
+    padding: 5px;
     float: left;
-    font-size: 20px;
+    font-size: 15px;
     color:lightblue;
-    height: 80px;    
-    width: 350px;
+    background-color: darkred;
+    height: 70px;    
+    width: 170px;
 }

@@ -1,48 +1,23 @@
-<div class="statusbar">
-<div class = "barbox" >
-<div class = "barboxtop">
- Gold
- </div>
- {{zzz.Gold}}
-</div>
 
-<div class = "barbox">
-<div class = "barboxtop">
- Warrior
- </div>
- {{ zzz.Warrior.Title}}
-</div>
-
-<div class = "barbox">
-<div class = "barboxtop">
- Market
- </div>
- {{zzz.Market.Name}}
-</div>
-
-<div class = "barbox">
-<div class = "barboxtop">
- Camp
- </div>
- {{zzz.Camp.Name}}
-</div>
-
-
-<div class = "barbox">
-<div class = "barboxtop">
- Day
- </div>
- {{zzz.CycleCount}}
-</div>
-
-<br style="clear: left;" />
-</div>
 
 <div class ="buttonBar">
-    <div *ngIf="zzz.CycleCount == 0">
-        Warrior's Name: <input [(ngModel)]="this.zzz.Warrior.PersonalName" autofocus/>
-        <button (click)='nextClick()'>Start Game!</button> 
+
+    <div class="grouperLeftLevel">
+        <div class="grouperLeftTop" style="background:url('./assets/res/warrior.png') no-repeat">
+        Warrior
+       </div>
+        {{zzz.Warrior.Title}}
     </div>
+    <div class="grouperRightLevel">
+        {{zzz.Warrior.Name}}
+        <BR>
+        <div *ngIf="zzz.IsGaveActive && zzz.Warrior.XP > 0">
+            <button (click)='AttemptDeed()'>Attempt {{zzz.Warrior.NextLevelDeedName}} Deed</button>
+            <BR>
+            {{zzz.Warrior.GetChanceString()}}
+        </div>
+    </div>
+    
 
     
     <div class="grouperLeftLevel">
@@ -56,11 +31,10 @@
         <BR>
         <BR>
         <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
-        <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
+        <div *ngIf="!zzz.CanUpgradeMarket()"> Upgrade Cost: {{zzz.Market.GetUpgradePrice()}} Gold</div>
     </div>
-    <br style="clear: left;" />
+    
 
-    <BR>
 
     <div class="grouperLeftLevel">
         <div class="grouperLeftTop" style="background:url('./assets/res/camp.png') no-repeat">
@@ -73,48 +47,66 @@
         <BR>
         <BR>
         <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='UpgradeCamp()'>Upgrade Camp</button> </div>
-        <div *ngIf="!zzz.CanUpgradeCamp()"> Gold needed to upgrade Camp: {{zzz.Camp.GetUpgradePrice()}} </div>        
+        <div *ngIf="!zzz.CanUpgradeCamp()"> Upgrade Cost: {{zzz.Camp.GetUpgradePrice()}} Gold</div>        
     </div>
     <br style="clear: left;" />
-
-    <BR>
-
-    <div class="grouperLeftLevel">
-        <div class="grouperLeftTop" style="background:url('./assets/res/warrior.png') no-repeat">
-        Warrior
-       </div>
-        {{zzz.Warrior.Title}}
-    </div>
-    <div class="grouperRightLevel">
-        {{zzz.Warrior.Name}}
-        <BR>
-        <div *ngIf="zzz.Warrior.XP > 0">
-            <button (click)='AttemptDeed()'>Attempt {{zzz.Warrior.NextLevelDeedName}} Deed</button>
-            <BR>
-            {{zzz.Warrior.GetChanceString()}}
-        </div>
-    </div>
-    <br style="clear: left;" />
-
-
-
-
-    <div *ngIf="zzz.IsGaveActive">
-         <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
-         <div *ngIf="!zzz.CanUpgradeMarket()"> Gold needed to upgrade Market: {{zzz.Market.GetUpgradePrice()}} </div>
-
-        <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='UpgradeCamp()'>Upgrade Camp</button> </div>
-         <div *ngIf="!zzz.CanUpgradeCamp()"> Gold needed to upgrade Camp: {{zzz.Camp.GetUpgradePrice()}} </div>
-
-        <div *ngIf="zzz.Warrior.XP > 0">
-            <button (click)='AttemptDeed()'>Attempt {{zzz.Warrior.NextLevelDeedName}} Deed</button>
-            {{zzz.Warrior.GetChanceString()}}
-        </div>
-
-        <BR>
-        <div *ngIf="zzz.IsGaveActive" > <button (click)='nextClick()'>Next Day...</button></div>
-    </div>
 </div>
+
+
+
+
+
+
+
+
+<div class="statusbar">
+<div class = "barbox" >
+<div class = "barboxtop">
+ Gold
+ </div>
+ {{zzz.Gold}}
+</div>
+
+<div class = "barbox">
+<div class = "barboxtop">
+ Day
+ </div>
+ {{zzz.CycleCount}}
+</div>
+
+
+<div class = "barbox">
+<div class = "barboxtop">
+ Builder Status
+ </div>
+ <div *ngIf="zzz.Builder.RecoveryTime == 0">Ready!</div>
+ <div *ngIf="zzz.Builder.RecoveryTime == 1">{{zzz.Builder.RecoveryTime}} Day Left</div>
+ <div *ngIf="zzz.Builder.RecoveryTime > 1">{{zzz.Builder.RecoveryTime}} Days Left</div>
+</div>
+
+
+    <div *ngIf="zzz.CycleCount == 0">
+        Warrior's Name: <input [(ngModel)]="this.zzz.Warrior.PersonalName" autofocus/>
+        <button (click)='nextClick()'>Start Game!</button> 
+    </div>
+
+        <div *ngIf="zzz.IsGaveActive" > <button (click)='nextClick()'>Next Day...</button></div>
+    
+<br style="clear: left;" />
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

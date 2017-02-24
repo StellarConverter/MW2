@@ -64,7 +64,7 @@ export class StuffRoot
 
     public CanUpgradeMarket() : boolean
     {
-        return  this.Builder.IsReady &&this.Gold >= this.Market.GetUpgradePrice();
+        return  this.IsGaveActive && this.Builder.IsReady &&this.Gold >= this.Market.GetUpgradePrice();
     }
 
     public UpgradeMarket()
@@ -84,7 +84,7 @@ export class StuffRoot
 
     public CanUpgradeCamp() : boolean
     {
-        return this.Builder.IsReady && this.Gold >= this.Camp.GetUpgradePrice();
+        return  this.IsGaveActive && this.Builder.IsReady && this.Gold >= this.Camp.GetUpgradePrice();
     }
 
     public UpgradeCamp()

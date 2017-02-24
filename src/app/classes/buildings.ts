@@ -29,7 +29,7 @@ export abstract class BuildingBase
         else
         {
             let sublevel = this.Level - (this.levelNames.length - 1);
-            return this.levelNames[this.levelNames.length - 1] + ' Level ' + sublevel;
+            return this.levelNames[this.levelNames.length - 1] + ' L ' + sublevel;
         }
     }
 

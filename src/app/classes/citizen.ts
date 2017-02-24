@@ -86,7 +86,7 @@ export class Warrior extends CitizenBase
 
     private UpdateName()
     {
-        this.Name = "Warrior: " + this.Title + " " + this.personalName;
+        this.Name = this.Title + " " + this.personalName;
     }
 
     public get Title() {return this.levelNames[this.Level-1];}
@@ -106,12 +106,12 @@ export class Warrior extends CitizenBase
         let maxXPForTHisLevel = this.MaxXPForLevel(this.Level);
         if (this.XP == maxXPForTHisLevel)
         {
-            return "Victory is certain - do it noooowwwwww!!";
+            return "Success is certain!";
         }
         else
         {
             let chanceToGetNextLevel = this.GetChanceToGetNextLevel();
-            return "Chance of success: " + chanceToGetNextLevel + "%";  
+            return "Success chance: " + chanceToGetNextLevel + "%";  
         }
     }
 
