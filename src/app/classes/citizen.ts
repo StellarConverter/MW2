@@ -118,7 +118,7 @@ export class Warrior extends CitizenBase
     public GetChanceToGetNextLevel(): number
     {
         let xpNextLevel = this.MaxXPForLevel(this.Level);
-        return ( this.XP / xpNextLevel) * 100; 
+        return Math.floor(( this.XP / xpNextLevel) * 100); 
     }
     
     public AttemptDeed(): BaseCard

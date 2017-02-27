@@ -33,18 +33,16 @@ div.statusbar
     border-style: solid;
     border-width: 1px;
     background-color: darkred;
+    color:black;
 }
 
 div.buttonBar
 {
+    /*
     background-image: url("./assets/res/mainBarBackdrop.png");     
     background-repeat: repeat;
-    padding: 10px;
-    border-style: solid;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 1px;
+    */
+    background-color: darkred;
 }
 
 div.bottomBar
@@ -56,15 +54,20 @@ div.bottomBar
 }
 
 
+div.grouerOutermost
+{
+    float:left;
+}
+
 div.grouperLeftLevel
 {
     border-style: solid;
-    float: left;
+    float: top;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     color:lightblue;
     height: 80px;
-    width:100px;
+    width:160px;
     background-color: darkred;
 }
 
@@ -78,11 +81,21 @@ div.grouperLeftTop
 div.grouperRightLevel
 {
     border-style: solid;
+    text-align:center;
     padding: 5px;
-    float: left;
+    float: top;
     font-size: 15px;
     color:lightblue;
     background-color: darkred;
-    height: 70px;    
-    width: 170px;
+    height: 54px;    
+    width: 15       0px;
+}
+
+
+div.routerZone
+{
+    /*
+    background-image: url("./assets/res/mainBarBackdrop.png");     
+    background-repeat: repeat;
+    */
 }
