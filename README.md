@@ -1,10 +1,9 @@
-A very simple proof-of-concept game in Angular 2.
-
-Link to run the app: 
+Link to run the game in your browser:
 https://stellarconverter.github.io/MW2
 
-So far I’m liking Angular - more specifically I’m liking Typescript over Javascript.  My plan is to finish out the game logic by the end of February (2017).  Then it will be on to a 5NAF clone most likely.
+Mighty Warrior is a simple game - it is an excuse for me to go hrough the motions with Angular 2 / Typescript.  This app was written using the Angular CLI / Node.js.
 
+I'm currenly working on the layout / CSS.
 
 
 

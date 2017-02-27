@@ -1,3 +1,17 @@
+div.statusbar
+{
+/*    
+    border-style: solid;
+    border-width: 1px;
+    color:black;
+*/
+    background-color: darkred;
+    float:left;
+    text-align: center;
+    height:153px;
+}
+
+
 div.barbox
 {
     border-style: solid;
@@ -6,12 +20,13 @@ div.barbox
     background-color: brown;
     color: lightblue;
     font-size: 20px;
-    float: left;
+    float: top;
+    width: 120px;
     text-align: center;
 
 }
 
-div.barboxtop
+div.barboxName
 {
     border-style: solid;
     border-left-width: 15px;
@@ -22,27 +37,26 @@ div.barboxtop
     color:black;
     padding-left:4px;
     padding-right:4px;
-    float: top;
+    float: left;
     font-size: 15px;
     background-color:silver;
 }
 
 
-div.statusbar
-{
-    border-style: solid;
-    border-width: 1px;
-    background-color: darkred;
-    color:black;
-}
 
-div.buttonBar
+
+
+
+
+
+
+div.threeMainItemsBar
 {
     /*
     background-image: url("./assets/res/mainBarBackdrop.png");     
     background-repeat: repeat;
     */
-    background-color: darkred;
+    background-color: #402020;
 }
 
 div.bottomBar
@@ -90,6 +104,12 @@ div.grouperRightLevel
     height: 54px;    
     width: 15       0px;
 }
+
+
+
+
+
+
 
 
 div.routerZone

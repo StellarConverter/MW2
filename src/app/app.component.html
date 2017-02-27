@@ -1,6 +1,36 @@
+<div class="statusbar">
+<div class = "barbox" >
+<div class = "barboxName">
+ Gold
+ </div>
+ {{zzz.Gold}}
+</div>
+
+<div class = "barbox">
+<div class = "barboxName">
+ XP
+ </div>
+ {{zzz.Warrior.XP}}
+</div>
 
 
-<div class ="buttonBar">
+<div class = "barbox">
+<div class = "barboxName">
+ Builder Status
+ </div>
+ <div *ngIf="zzz.Builder.RecoveryTime == 0">Ready!</div>
+ <div *ngIf="zzz.Builder.RecoveryTime == 1">{{zzz.Builder.RecoveryTime}} Day Left</div>
+ <div *ngIf="zzz.Builder.RecoveryTime > 1">{{zzz.Builder.RecoveryTime}} Days Left</div>
+</div>
+<button (click)='nextClick()'  [disabled]="!zzz.IsGaveActive" >     >Next Day...</button>
+</div>
+
+
+
+
+
+
+<div class ="threeMainItemsBar">
 <div class="grouerOutermost">
 
     <div class="grouperLeftLevel" style="background:url('./assets/res/warrior.png') no-repeat">
@@ -31,8 +61,8 @@
     <div class="grouperRightLevel" style="background-color:darkgreen">
         {{zzz.Market.Level}} Gold / Day
         <BR>
-        <div *ngIf="zzz.CanUpgradeMarket()"> <button (click)='UpgradeMarket()'>Upgrade Market</button> </div>
-        <div *ngIf="!zzz.CanUpgradeMarket()"><BR></div>
+        <button [disabled]="!zzz.CanUpgradeMarket()" (click)='UpgradeMarket()'>Upgrade Market</button>
+        <BR>
         Upgrade Cost: {{zzz.Market.GetUpgradePrice()}} Gold
     </div>
     </div>
@@ -48,8 +78,8 @@
     <div class="grouperRightLevel" style="background-color:darkblue">
         {{zzz.Camp.Level}} XP / Day
         <BR>
-        <div *ngIf="zzz.CanUpgradeCamp()"> <button (click)='UpgradeCamp()'>Upgrade Camp</button> </div>
-        <div *ngIf="!zzz.CanUpgradeCamp()"><BR></div>
+        <button [disabled]="!zzz.CanUpgradeCamp()" (click)='UpgradeCamp()'>Upgrade Camp</button>
+        <BR>
          Upgrade Cost: {{zzz.Camp.GetUpgradePrice()}} Gold     
     </div>
 </div>
@@ -61,38 +91,6 @@
 
 
 
-<div class="statusbar">
-<div class = "barbox" >
-<div class = "barboxtop">
- Gold
- </div>
- {{zzz.Gold}}
-</div>
-
-<div class = "barbox">
-<div class = "barboxtop">
- Day
- </div>
- {{zzz.CycleCount}}
-</div>
-
-
-<div class = "barbox">
-<div class = "barboxtop">
- Builder Status
- </div>
- <div *ngIf="zzz.Builder.RecoveryTime == 0">Ready!</div>
- <div *ngIf="zzz.Builder.RecoveryTime == 1">{{zzz.Builder.RecoveryTime}} Day Left</div>
- <div *ngIf="zzz.Builder.RecoveryTime > 1">{{zzz.Builder.RecoveryTime}} Days Left</div>
-</div>
-
-
-  
-
-        <div *ngIf="zzz.IsGaveActive" > <button (click)='nextClick()'>Next Day...</button></div>
-    
-<br style="clear: left;" />
-</div>
 
 
 
