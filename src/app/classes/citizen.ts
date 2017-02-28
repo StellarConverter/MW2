@@ -70,7 +70,7 @@ export class Warrior extends CitizenBase
         super();
         this.XP = 0;
         this.Level = 1;
-        this.levelNames = ["Scrawny", "Meager", "Ample", "Sturdy", "Tough", "Mighty"];
+        this.levelNames = ["Feeble", "Meager", "Ample", "Sturdy", "Tough", "Mighty"];
         this.PersonalName = "Konan";
     }
 

@@ -5,8 +5,8 @@
   {{card().Description}}
 </p>
 <div *ngIf="card().BuilderAdjust>0"> Builder slowed by {{card().BuilderAdjust}} turn(s). </div>
-<div *ngIf="card().GoldAdjust<0"> Gold lost: {{-card().GoldAdjust}}.</div>
-<div *ngIf="card().GoldAdjust>0"> Gold gained: {{card().GoldAdjust}}.  </div>
+<div *ngIf="card().GoldAdjust<0"> Gold lost: {{-card().GoldAdjust}}</div>
+<div *ngIf="card().GoldAdjust>0"> Gold gained: {{card().GoldAdjust}} </div>
 <div *ngIf="card().WarriorResetXP==true"> The Warrior loses all XP for the current level</div>
 <div *ngIf="card().XPAdjuist!=null"> The Warrior gains {{card().XPAdjuist}} XP</div>
 
