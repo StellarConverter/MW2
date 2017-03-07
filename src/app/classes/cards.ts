@@ -74,10 +74,10 @@ export class Deck
     private getAllPlayingCards() : BaseCard[]
     {
         return [
-            new NothingHappens(),
-            new Flummoxed(), new Leery(), new Moribund(), new Mercurial(), 
-            new BeatenSoundly(), new MagicBeans(), new ScandalousLeggings(), new Bamboozler, new BoldLimericks(),
-            new MortalWombat(), new DireHedgehog()];
+            new Flummoxed(), new Leery(), new Moribund(), new Mercurial(), new Crestfallen(),
+            new BeatenSoundly(), new MagicBeans(), new ScandalousLeggings(), new Bamboozler, new BoldLimericks(), new ElixirOfArdor(),
+            new MortalWombat(), new DireHedgehog(),
+            new NothingHappens()];
     }
 
     public TakeCard() : BaseCard
@@ -92,6 +92,21 @@ export class Deck
     } 
 }
 
+
+/////////  MISC CARDS
+
+
+export class NothingHappens extends BaseCard
+{
+    constructor ()
+    {
+        super();
+        this.displayName="Nothing Happens";
+        this.desc = "Nothing particularly interesting happens today.";
+    }
+}
+
+//////////// BUILDER CARDS
 
 
 export class Flummoxed extends BaseCard
@@ -127,6 +142,127 @@ export class Moribund extends BaseCard
     }
 }
 
+export class Mercurial extends BaseCard
+{
+    constructor ()
+    {
+        super();
+        this.displayName="Mercurial";
+        this.desc = "The Builder stalks off the work site in a fit of rage.  Sometimes the Builder's poor mastery of his moods is his undoing.";
+        this.builderAdjust = 2;
+    }
+}
+
+export class Crestfallen extends BaseCard
+{
+    constructor ()
+    {
+        super();
+        this.displayName="Crestfallen";
+        this.desc = "The Builder acutely feels that his expectations of a better life are out of reach.  He's taking a personal day today to sort things out.";
+        this.builderAdjust = 1;
+    }
+}
+
+
+/////////////// MERCHANT CARDS
+
+
+export class BeatenSoundly extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Beaten Soundly";
+        this.desc = "The Merchant teases the Warrior, and is beaten soundly.  It requires some gold to heal The Merchant.";
+        this.goldAdjust = -5;
+        this.xpAdjust = 1;
+    }
+}
+
+export class MagicBeans extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Magic Beans";
+        this.desc = "The Merchant invests the Kingdom's gold in magic beans.  They don't pan out.";
+        this.goldAdjust = -5;
+    }
+}
+
+export class ScandalousLeggings extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Scandalous Leggings";
+        this.desc = "The Merchant is spotted wearing leggings of a scandalous nature in a neighhboring village.  It costs money to spring him from jail.";
+        this.goldAdjust = -10;
+    }
+}
+
+export class BoldLimericks extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Bold Limericks";
+        this.desc = "The Merchant is overheard reciting limericks of a bold nature in a neighhboring village.  It costs money to spring him from jail.";
+        this.goldAdjust = -7;
+    }
+}
+
+export class Bamboozler extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Bamboozler";
+        this.desc = "The Merchant manages to bamboozle some hapless citizens in a neighhboring village.  His winnings are confiscated (for the good of our Kingdom).";
+        this.goldAdjust = 5;
+    }
+}
+
+export class ElixirOfArdor extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Elixir of Ardor";
+        this.desc = "The Merchant does a brisk trade in an elixir for increasing manly ardor.  The Kingdom's future prosperity is looking up.";
+        this.goldAdjust = 10;
+    }
+}
+
+
+////////////////// WARRIOR CARDS
+
+
+export class MortalWombat extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Mortal Wombat";
+        this.desc = "The Warrior attempts to defeat a giant wombat in combat... The Warrior is thrashed severely.";
+        this.warriorResetXP = true;
+    }
+}
+
+export class DireHedgehog extends BaseCard
+{
+    constructor()
+    {
+        super();
+        this.displayName="Dire Hedgehog";
+        this.desc = "The Warrior tussles with, and defeats, a Dire Hedgehog.  The Kingdom is safe once again!";
+        this.xpAdjust = 5;
+    }
+}
+
+///////////////////// ACTION CARDS
+
 export class WarriorVictory extends BaseCard
 {
     constructor ()
@@ -145,108 +281,6 @@ export class WarriorFailure extends BaseCard
         super();
         this.displayName="Failure";
         this.desc ="You tried....   but it was not to be";
-    }
-}
-
-
-export class Mercurial extends BaseCard
-{
-    constructor ()
-    {
-        super();
-        this.displayName="Mercurial";
-        this.desc = "The Builder stalks off the work site in a fit of rage.  Sometimes the Builder's poor mastery of his moods is his undoing.";
-        this.builderAdjust = 2;
-    }
-}
-
-export class NothingHappens extends BaseCard
-{
-    constructor ()
-    {
-        super();
-        this.displayName="Nothing Happens";
-        this.desc = "Nothing particularly interesting happens today.";
-    }
-}
-
-export class BeatenSoundly extends BaseCard
-{
-    constructor()
-    {
-        super();
-        this.displayName="Beaten Soundly";
-        this.desc = "The merchant teases the Warrior, and is beaten soundly.  It requires some gold to heal the Merchant.";
-        this.goldAdjust = -5;
-        this.xpAdjust = 1;
-    }
-}
-
-export class MagicBeans extends BaseCard
-{
-    constructor()
-    {
-        super();
-        this.displayName="Magic Beans";
-        this.desc = "The merchant invests the Kingdom's gold in magic beans.  They don't pan out.";
-        this.goldAdjust = -5;
-    }
-}
-
-export class ScandalousLeggings extends BaseCard
-{
-    constructor()
-    {
-        super();
-        this.displayName="Scandalous Leggings";
-        this.desc = "The merchant is spotted wearing leggings of a scandalous nature in a neighhboring village.  It costs money to spring him from jail.";
-        this.goldAdjust = -10;
-    }
-}
-
-export class BoldLimericks extends BaseCard
-{
-    constructor()
-    {
-        super();
-        this.displayName="Bold Limericks";
-        this.desc = "The merchant is overheard reciting limericks of a bold nature in a neighhboring village.  It costs money to spring him from jail.";
-        this.goldAdjust = -7;
-    }
-}
-
-
-
-export class Bamboozler extends BaseCard
-{
-    constructor()
-    {
-        super();
-        this.displayName="Bamboozler";
-        this.desc = "The merchant manages to bamboozle some hapless citizens in a neighhboring village.  His winnings are confiscated (for the good of our Kingdom).";
-        this.goldAdjust = 10;
-    }
-}
-
-export class MortalWombat extends BaseCard
-{
-    constructor()
-    {
-        super();
-        this.displayName="Mortal Wombat";
-        this.desc = "The Warrior attempts to defeat a giant wombat in combat - The Warrior is thrashed severely.";
-        this.warriorResetXP = true;
-    }
-}
-
-export class DireHedgehog extends BaseCard
-{
-    constructor()
-    {
-        super();
-        this.displayName="Dire Hedgehog";
-        this.desc = "The Warrior tussles with, and defeats, a Dire Hedgehog.  The Kingdom is safe once again!";
-        this.xpAdjust = 5;
     }
 }
 
