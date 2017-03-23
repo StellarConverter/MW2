@@ -14,9 +14,9 @@ export class DashboardComponent implements OnInit {
 
   private zzz:StuffRoot;
 
-  ngOnInit() {
-    this.zzz = this.qq.getStuff();
-    
+  ngOnInit() 
+  {
+    this.zzz = this.qq.getStuff();    
   }
 
 }

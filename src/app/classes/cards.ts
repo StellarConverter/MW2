@@ -268,7 +268,7 @@ export class WarriorVictory extends BaseCard
     constructor ()
     {
         super();
-        this.displayName="Victory";
+        this.displayName="Victory!";
         this.desc ="You have moved to a new level";
     }
 }
