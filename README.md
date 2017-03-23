@@ -3,7 +3,7 @@ https://stellarconverter.github.io/MW2
 
 Mighty Warrior is a simple game - it is an excuse for me to go hrough the motions with Angular 2 / Typescript.  This app was written using the Angular CLI / Node.js.
 
-I'm currenly working on the layout / CSS.
+I'm considering the game done at this point.  I'm moving on to a new project -- 'Reaper' (*sounds cool, eh?).
 
 
 
