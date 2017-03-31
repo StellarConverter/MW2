@@ -19,8 +19,8 @@
  Builder Status
  </div>
  <div *ngIf="zzz.Builder.RecoveryTime == 0">Ready!</div>
- <div *ngIf="zzz.Builder.RecoveryTime == 1">{{zzz.Builder.RecoveryTime}} Day Left</div>
- <div *ngIf="zzz.Builder.RecoveryTime > 1">{{zzz.Builder.RecoveryTime}} Days Left</div>
+ <div *ngIf="zzz.Builder.RecoveryTime == 1" style="color:orange">{{zzz.Builder.RecoveryTime}} Day Left</div>
+ <div *ngIf="zzz.Builder.RecoveryTime > 1" style="color:orange">{{zzz.Builder.RecoveryTime}} Days Left</div>
 </div>
 <button (click)='nextClick()'  [disabled]="!zzz.IsGaveActive">Next Day...</button>
 </div>
